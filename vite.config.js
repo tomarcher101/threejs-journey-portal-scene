@@ -3,7 +3,7 @@ import glsl from 'vite-plugin-glsl'
 export default {
     root: 'src/',
     publicDir: '../static/',
-    base: '/<REPO>',
+    base: '/threejs-journey-portal-scene/',
     server:
     {
         host: true, // Open to local network and display URL
