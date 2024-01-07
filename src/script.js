@@ -8,6 +8,8 @@ import firefliesFragmentShader from "./shaders/fireflies/fragment.glsl";
 import portalVertexShader from "./shaders/portal/vertex.glsl";
 import portalFragmentShader from "./shaders/portal/fragment.glsl";
 
+const baseUrl = import.meta.env.BASE_URL;
+
 /**
  * Base
  */
@@ -38,7 +40,7 @@ const gltfLoader = new GLTFLoader();
 gltfLoader.setDRACOLoader(dracoLoader);
 
 // TEXTURES
-const bakedTexture = textureLoader.load("/baked-final.jpg");
+const bakedTexture = textureLoader.load(`${baseUrl}/baked-final.jpg`);
 bakedTexture.colorSpace = THREE.SRGBColorSpace;
 bakedTexture.flipY = false;
 
@@ -76,7 +78,7 @@ const portalLightMaterial = new THREE.ShaderMaterial({
 });
 
 // Model
-gltfLoader.load("/portal-scene3.glb", (gltf) => {
+gltfLoader.load(`${baseUrl}/portal-scene3.glb`, (gltf) => {
   gltf.scene.traverse((child) => {
     const bakedMesh = gltf.scene.children.find(
       (child) => child.name === "baked"
